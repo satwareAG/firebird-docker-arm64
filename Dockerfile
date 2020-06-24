@@ -23,6 +23,7 @@ RUN chmod +x ${PREFIX}/docker-entrypoint.sh
 
 COPY docker-healthcheck.sh ${PREFIX}/docker-healthcheck.sh
 RUN chmod +x ${PREFIX}/docker-healthcheck.sh
+
 HEALTHCHECK CMD ${PREFIX}/docker-healthcheck.sh || exit 1
 
 ENTRYPOINT ["/usr/local/firebird/docker-entrypoint.sh"]

@@ -14,6 +14,7 @@ apt-get install -qy --no-install-recommends \
     libicu57 \
     libicu-dev \
     libncurses5-dev \
+    libedit2 \
     libedit-dev \
     autoconf \
     automake \
