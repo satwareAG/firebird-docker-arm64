@@ -22,10 +22,7 @@ COPY docker-entrypoint.sh ${PREFIX}/docker-entrypoint.sh
 RUN chmod +x ${PREFIX}/docker-entrypoint.sh
 
 COPY docker-healthcheck.sh ${PREFIX}/docker-healthcheck.sh
-RUN chmod +x ${PREFIX}/docker-healthcheck.sh \
-    && apt-get update \
-    && apt-get -qy install netcat libncurses5 \
-    && rm -rf /var/lib/apt/lists/*
+RUN chmod +x ${PREFIX}/docker-healthcheck.sh
 HEALTHCHECK CMD ${PREFIX}/docker-healthcheck.sh || exit 1
 
 ENTRYPOINT ["/usr/local/firebird/docker-entrypoint.sh"]

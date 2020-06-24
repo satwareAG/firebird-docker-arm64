@@ -1,9 +1,9 @@
 #!/bin/bash
 set -e
-CPUC=$(awk '/^processor/{n+=1}END{print n}' /proc/cpuinfo)
-
 apt-get update
 apt-get install -qy --no-install-recommends \
+    netcat \
+    libncurses5 \
     libtommath1 \
     libtommath-dev \
     bzip2 \
@@ -62,12 +62,12 @@ apt-get purge -qy --auto-remove \
     libncurses5-dev \
     libtommath-dev \
     make \
-    zlib1g-dev \
     libedit-dev \
     autoconf \
     automake \
     bison \
-    libatomic-ops-dev
+    libatomic-ops-dev \
+    curl
 rm -rf /var/lib/apt/lists/*
 
 mkdir -p "${PREFIX}/skel"
